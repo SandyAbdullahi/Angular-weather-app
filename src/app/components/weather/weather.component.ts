@@ -15,11 +15,13 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
     this.loadWeather();
+
   }
 
   loadWeather():void{
     this.weatherSvc.get().subscribe(data => {
-      this.weather = data
+      this.weather = data['list'];
+      console.log(data);
     })
   }
 
