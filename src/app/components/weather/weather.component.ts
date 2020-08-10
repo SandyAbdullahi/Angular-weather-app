@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Weather } from "../../services/weather.model";
+import { WeatherService } from "../../services/weather.service";
 
 @Component({
   selector: 'app-weather',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherComponent implements OnInit {
 
-  constructor() { }
+  weather: Weather[];
+
+  constructor(private weatherSvc: WeatherService) { }
 
   ngOnInit() {
+    this.loadWeather();
+  }
+
+  loadWeather():void{
+    this.weatherSvc.get().subscribe(data => {
+      this.weather = data
+    })
   }
 
 }
