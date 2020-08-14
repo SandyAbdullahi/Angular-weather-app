@@ -5,6 +5,9 @@
         <mat-label>Search for a location</mat-label>
         <input matInput placeholder="Nairobi">
         <mat-icon matSuffix>search</mat-icon>
+        <button type="submit">
+          Save
+        </button>
 
       </mat-form-field>
     </form>
@@ -12,9 +15,7 @@
   <div class="row">
     <div class="col-md-4" *ngFor="let item of current_climate">
       <mat-card class="m-2 bg-alt-bg" @it>
-        <img mat-card-image src="http://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png"
-        [alt]="item.weather[0].icon">
-        <small>{{item.weather[0].icon}}</small>
+          <i class="owi owi-{{item.weather[0].icon}}"></i>
         <mat-card-header>
           <mat-card-title>{{ item.name }}</mat-card-title>
           <mat-card-subtitle class="temperature text-warning font-weight-bold"><i
@@ -23,7 +24,7 @@
         </mat-card-header>
 
         <mat-card-content class="p-2">
-          <div class="container text-center">
+          <div class="container">
             <p class="text-info font-weight-bold"><i class="fas fa-cloud-rain    "></i> :
               {{ item.main.humidity }}</p>
             <p class="text-white">Feels Like: <span class="font-italic">{{ item.main.feels_like }}</span><span

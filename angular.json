@@ -30,7 +30,8 @@
             ],
             "styles": [
               "src/app/styles/custom-theme.scss",
-              "src/styles.sass"
+              "src/styles.sass",
+              "node_modules/open-weather-icons/dist/css/open-weather-icons.css"
             ],
             "scripts": []
           },
