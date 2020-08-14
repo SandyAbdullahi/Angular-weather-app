@@ -23,9 +23,6 @@ export class WeatherComponent implements OnInit {
   loadWeather():void{
     this.weatherSvc.get().subscribe(data => {
       this.current_climate = data['list'].flatMap(i => i);
-      this.climate_info = data['list'].flatMap(i => i.weather);
-      console.log(this.current_climate);
-      // console.log(this.climate_info);
     })
   }
 

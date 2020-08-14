@@ -1,14 +1,14 @@
 <div class="container" >
   <div class="row">
     <div class="col-md-4" *ngFor="let item of current_climate">
-      <mat-card class="m-2">
+      <mat-card class="m-2 bg-alt-bg">
         <mat-card-header>
           <div mat-card-avatar >
-            <img src="http://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png" alt="">
+            <img src="http://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png" width="250" [alt]="item.weather[0].icon">
           </div>
           <mat-card-title>{{ item.name }}</mat-card-title>
-          <mat-card-subtitle class="text-warning font-weight-bold"><i class="fas fa-temperature-high    "></i> : {{ item.main.temp|number:'0.0-0'|slice:0:2 }}<span style='font-size:10px;'>&#8451;</span> </mat-card-subtitle>
-          <mat-card-subtitle class="text-info font-weight-bold"><i class="fa fa-cloud" aria-hidden="true"></i> : {{ item.main.humidity }}</mat-card-subtitle>
+          <mat-card-subtitle class="temperature text-warning font-weight-bold"><i class="fas fa-temperature-high    "></i> : {{ item.main.temp|number:'0.0-0'|slice:0:2 }}<span style='font-size:10px;'>&#8451;</span> </mat-card-subtitle>
+          <mat-card-subtitle class="text-info font-weight-bold"><i class="fas fa-cloud-rain    "></i> : {{ item.main.humidity }}</mat-card-subtitle>
         </mat-card-header>
 
         <mat-divider></mat-divider>
