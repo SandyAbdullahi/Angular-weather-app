@@ -1,4 +1,4 @@
-<div class="container" >
+<div class="container">
   <div class="text-center my-5">
     <form action="" method="post">
       <mat-form-field appearance="fill">
@@ -11,23 +11,28 @@
   </div>
   <div class="row">
     <div class="col-md-4" *ngFor="let item of current_climate">
-      <mat-card class="m-2 bg-alt-bg">
+      <mat-card class="m-2 bg-alt-bg" @it>
+        <img mat-card-image src="http://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png"
+        [alt]="item.weather[0].icon">
+        <small>{{item.weather[0].icon}}</small>
         <mat-card-header>
-          <div mat-card-avatar >
-            <img src="http://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png" width="250" [alt]="item.weather[0].icon">
-          </div>
           <mat-card-title>{{ item.name }}</mat-card-title>
-          <mat-card-subtitle class="temperature text-warning font-weight-bold"><i class="fas fa-temperature-high    "></i> : {{ item.main.temp|number:'0.0-0'|slice:0:2 }}<span style='font-size:10px;'>&#8451;</span> </mat-card-subtitle>
-          <mat-card-subtitle class="text-white">Feels Like: <span class="font-italic">{{ item.main.feels_like }}</span><span style='font-size:10px;'>&#8451;</span></mat-card-subtitle>
-          <mat-card-subtitle class="text-info font-weight-bold"><i class="fas fa-cloud-rain    "></i> : {{ item.main.humidity }}</mat-card-subtitle>
+          <mat-card-subtitle class="temperature text-warning font-weight-bold"><i
+              class="fas fa-temperature-high    "></i> : {{ item.main.temp|number:'0.0-0'|slice:0:2 }}<span
+              style='font-size:10px;'>&#8451;</span> </mat-card-subtitle>
         </mat-card-header>
 
-        <mat-divider></mat-divider>
         <mat-card-content class="p-2">
-          <p class="text-center">{{ item.weather[0].description|titlecase }}</p>
-        </mat-card-content >
-        <mat-divider></mat-divider>
-        <p class="text-center"><i class="fas fa-wind text-primary"></i> {{ item.wind.speed }} meter/sec</p>
+          <div class="container text-center">
+            <p class="text-info font-weight-bold"><i class="fas fa-cloud-rain    "></i> :
+              {{ item.main.humidity }}</p>
+            <p class="text-white">Feels Like: <span class="font-italic">{{ item.main.feels_like }}</span><span
+                style='font-size:10px;'>&#8451;</span></p>
+            <p>Cloud Cover: {{ item.clouds.all }}%</p>
+            <p>{{ item.weather[0].description|titlecase }}</p>
+            <p><i class="fas fa-wind text-primary"></i> {{ item.wind.speed }} meter/sec</p>
+          </div>
+        </mat-card-content>
       </mat-card>
     </div>
   </div>

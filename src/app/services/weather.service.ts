@@ -21,10 +21,10 @@ export class WeatherService {
 
 
   API_KEY = 'a8f2a6d48d0be78d05902f4228fd9a05';
-  API_URL =  `https://api.openweathermap.org/data/2.5/find?lat=-1.2724254&lon=36.7927116&&units=metric&cnt=24&appid=${this.API_KEY}`;
+  API_URL_MAIN =  `https://api.openweathermap.org/data/2.5/find?lat=-1.2724254&lon=36.7927116&&units=metric&cnt=24&appid=${this.API_KEY}`;
 
 
   get():Observable<Weather[]>{
-    return this.httpClient.get<Weather[]>(this.API_URL);
+    return this.httpClient.get<Weather[]>(this.API_URL_MAIN);
   }
 }
