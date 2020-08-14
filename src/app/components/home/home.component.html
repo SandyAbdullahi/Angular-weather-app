@@ -1,11 +1,16 @@
 <div class="main-header">
   <div class="jumbotron-fluid text-center vh-100">
-    <h1 class="display-3 ">A Weather App</h1>
+    <h1 class="display-3 title">The Weather App</h1>
     <p class="lead">Using the Open Weather Api</p>
     <hr class="mx-auto w-50">
 
     <p class="lead">
-      <a class="btn body-bg btn-lg" [routerLink]="['/weather']"  role="button">Check The Weather</a>
+      <a class="btn body-bg btn-lg text-alt" [routerLink]="['/weather']"  role="button">Check The Weather</a>
     </p>
+    <div class="container mt-5">
+      <h2>About this App</h2>
+      <hr class="bg-accent">
+      <p>I made this app to showcase some of the techniques I've learned for consuming APIs in <a href="http://angular.io/"><span class="text-danger">Angular</span></a>. For this app, I had to learn to handle pipes as well as methods for geolocation and interpolation. On the other hand, though, the app was a thrill to build because it presented new challenges that required out of the box thinking.</p>
+    </div>
   </div>
 </div>

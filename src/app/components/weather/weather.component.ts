@@ -9,7 +9,9 @@ import { WeatherService } from "../../services/weather.service";
 })
 export class WeatherComponent implements OnInit {
 
-  weather: Weather[];
+  current_climate: Weather[];
+  climate_info: Weather[];
+
 
   constructor(private weatherSvc: WeatherService) { }
 
@@ -20,8 +22,10 @@ export class WeatherComponent implements OnInit {
 
   loadWeather():void{
     this.weatherSvc.get().subscribe(data => {
-      this.weather = data['list'];
-      console.log(data);
+      this.current_climate = data['list'].flatMap(i => i);
+      this.climate_info = data['list'].flatMap(i => i.weather);
+      console.log(this.current_climate);
+      // console.log(this.climate_info);
     })
   }
 
