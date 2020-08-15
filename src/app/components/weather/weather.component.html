@@ -9,6 +9,14 @@
       </mat-form-field>
     </form>
   </div>
+  <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="large"
+  color="#647AA3"
+  type="timer"
+>
+  <p class="text-alt">Loading the Weather in your location</p>
+</ngx-spinner>
   <div class="row">
     <div class="col-21 col-sm-6 col-md-6 col-lg-4" *ngFor="let item of current_climate">
       <mat-card class="m-2 bg-alt-bg" @it>

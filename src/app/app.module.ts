@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './core/app.component';
@@ -9,6 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 @NgModule({
@@ -24,8 +26,10 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
+    NgxSpinnerModule
 
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

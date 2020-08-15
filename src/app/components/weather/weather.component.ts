@@ -3,6 +3,7 @@ import { state } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Weather } from "../../services/weather.model";
 import { WeatherService } from "../../services/weather.service";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-weather',
@@ -31,18 +32,35 @@ export class WeatherComponent implements OnInit {
   climate_info: Weather[];
 
 
-  constructor(private weatherSvc: WeatherService) { }
+  constructor(private spinner: NgxSpinnerService, private weatherSvc: WeatherService) { }
 
-  ngOnInit() {
-    this.loadWeather();
 
-  }
 
-  loadWeather():void{
-    this.weatherSvc.get().subscribe(data => {
-      this.current_climate = data['list'].flatMap(i => i);
-      console.log(this.current_climate);
-    })
-  }
+
+
+
+    ngOnInit() {
+
+      this.spinner.show();
+      setTimeout(()=> {
+        this.spinner.hide();
+      }, 1000);
+
+
+
+
+      this.loadWeather();
+
+
+    }
+
+    loadWeather():void{
+      this.weatherSvc.get().subscribe(data => {
+        this.current_climate = data['list'].flatMap(i => i);
+        console.log(this.current_climate);
+      })
+    };
+
+
 
 }
