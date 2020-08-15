@@ -4,16 +4,13 @@
       <mat-form-field appearance="fill">
         <mat-label>Search for a location</mat-label>
         <input matInput placeholder="Nairobi">
-        <mat-icon matSuffix>search</mat-icon>
-        <button type="submit">
-          Save
-        </button>
+        <mat-icon matSuffix role="submit">search</mat-icon>
 
       </mat-form-field>
     </form>
   </div>
   <div class="row">
-    <div class="col-md-4" *ngFor="let item of current_climate">
+    <div class="col-21 col-sm-6 col-md-6 col-lg-4" *ngFor="let item of current_climate">
       <mat-card class="m-2 bg-alt-bg" @it>
           <i class="owi owi-{{item.weather[0].icon}}"></i>
         <mat-card-header>
@@ -24,13 +21,17 @@
         </mat-card-header>
 
         <mat-card-content class="p-2">
-          <div class="container">
+          <div class="container-fluid">
             <p class="text-info font-weight-bold"><i class="fas fa-cloud-rain    "></i> :
               {{ item.main.humidity }}</p>
             <p class="text-white">Feels Like: <span class="font-italic">{{ item.main.feels_like }}</span><span
                 style='font-size:10px;'>&#8451;</span></p>
+            <p class="text-white">Min Temparature: <span class="font-italic text-info">{{ item.main.temp_min }}</span><span
+                  style='font-size:10px;'>&#8451;</span></p>
+            <p class="text-white">Max Temparature: <span class="font-italic text-danger">{{ item.main.temp_max }}</span><span
+                    style='font-size:10px;'>&#8451;</span></p>
             <p>Cloud Cover: {{ item.clouds.all }}%</p>
-            <p>{{ item.weather[0].description|titlecase }}</p>
+            <p class="text-secondary">"{{ item.weather[0].description|titlecase }}"</p>
             <p><i class="fas fa-wind text-primary"></i> {{ item.wind.speed }} meter/sec</p>
           </div>
         </mat-card-content>
